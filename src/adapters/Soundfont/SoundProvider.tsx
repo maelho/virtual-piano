@@ -1,15 +1,8 @@
-import {
-  ReactElement,
-  FunctionComponent,
-  useState,
-  useEffect,
-  useRef,
-  useCallback,
-} from 'react'
-import Soundfont, { InstrumentName, Player } from 'soundfont-player'
-import { MidiValue } from '../../domain/note'
-import { Optional } from '../../domain/types'
-import { AudioNodesRegistry, DEFAULT_INSTRUMENT } from '../../domain/sound'
+import { type FunctionComponent, type ReactElement, useCallback, useEffect, useRef, useState } from 'react'
+import Soundfont, { type InstrumentName, type Player } from 'soundfont-player'
+import type { MidiValue } from '../../domain/note'
+import { type AudioNodesRegistry, DEFAULT_INSTRUMENT } from '../../domain/sound'
+import type { Optional } from '../../domain/types'
 
 type ProvidedProps = {
   loading: boolean
@@ -23,11 +16,7 @@ type ProviderProps = {
   render(props: ProvidedProps): ReactElement
 }
 
-export const SoundfontProvider: FunctionComponent<ProviderProps> = ({
-  AudioContext,
-  instrument,
-  render,
-}) => {
+export const SoundfontProvider: FunctionComponent<ProviderProps> = ({ AudioContext, instrument, render }) => {
   let activeNodes: AudioNodesRegistry = {}
 
   const [current, setCurrent] = useState<Optional<InstrumentName>>(null)
@@ -42,9 +31,7 @@ export const SoundfontProvider: FunctionComponent<ProviderProps> = ({
   }, [loadInstrument, loading, instrument, current])
 
   async function resume() {
-    return audio.current.state === 'suspended'
-      ? await audio.current.resume()
-      : Promise.resolve()
+    return audio.current.state === 'suspended' ? await audio.current.resume() : Promise.resolve()
   }
 
   async function load(instrument: InstrumentName = DEFAULT_INSTRUMENT) {

@@ -1,6 +1,5 @@
-import { Main } from './componentes/Main'
-
 import s from './App.module.css'
+import { Main } from './componentes/Main'
 
 export function App() {
   return (

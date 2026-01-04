@@ -1,6 +1,6 @@
 import { useRef } from 'react'
-import { Optional } from '../../domain/types'
 import { accessContext } from '../../domain/audio'
+import type { Optional } from '../../domain/types'
 
 export function useAudioContext(): Optional<AudioContextType> {
   const AudioCtx = useRef(accessContext())
