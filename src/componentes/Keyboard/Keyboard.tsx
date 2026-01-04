@@ -20,7 +20,7 @@ export const Keyboard = ({ loading, play, stop }: KeyboardProps) => {
             key={midi}
             label={label}
             onDown={() => play(midi)}
-            onUp={() => play(midi)}
+            onUp={() => stop(midi)}
             type={type}
           />
         )
