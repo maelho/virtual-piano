@@ -1,5 +1,5 @@
 import { selectKey } from '../../domain/keyboard'
-import { MidiValue, notes } from '../../domain/note'
+import { type MidiValue, notes } from '../../domain/note'
 import { Key } from '../Key'
 import s from './Keyboard.module.css'
 
@@ -16,12 +16,12 @@ export const Keyboard = ({ loading, play, stop }: KeyboardProps) => {
         const label = selectKey(octave, index)
         return (
           <Key
-            key={midi}
-            type={type}
-            label={label}
             disabled={loading}
+            key={midi}
+            label={label}
             onDown={() => play(midi)}
             onUp={() => play(midi)}
+            type={type}
           />
         )
       })}

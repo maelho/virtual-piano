@@ -1,4 +1,4 @@
-import { OctaveIndex, PitchIndex } from './note'
+import type { OctaveIndex, PitchIndex } from './note'
 
 export type Key = string
 export type Keys = Key[]

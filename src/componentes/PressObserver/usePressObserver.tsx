@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Key as KeyLabel } from '../../domain/keyboard'
+import type { Key as KeyLabel } from '../../domain/keyboard'
 
 type IsPress = boolean
 type EventCode = string
@@ -20,11 +20,7 @@ function equal(watchedKey: KeyLabel, eventCode: EventCode): boolean {
   return fromEventCode(eventCode).toUpperCase() === watchedKey.toUpperCase()
 }
 
-export function usePressObserver({
-  watchKey,
-  onStartPress,
-  onFinishPress,
-}: Settings): IsPress {
+export function usePressObserver({ watchKey, onStartPress, onFinishPress }: Settings): IsPress {
   const [pressed, setPressed] = useState<IsPress>(false)
 
   useEffect(() => {

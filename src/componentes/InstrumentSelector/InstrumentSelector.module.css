@@ -1,12 +1,12 @@
 .instruments {
   display: block;
-  text-transform: capitalize;
+
+  margin: 1.5rem auto 0;
   font-size: 1.2rem;
   line-height: 1.5;
 
-  margin: 1.5rem auto 0;
-
   color: #495057;
+  text-transform: capitalize;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;

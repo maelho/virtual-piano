@@ -1,8 +1,8 @@
-import { FunctionComponent } from 'react'
 import clsx from 'clsx'
-import { NoteType } from '../../domain/note'
-import s from './Key.module.css'
+import type { FunctionComponent } from 'react'
+import type { NoteType } from '../../domain/note'
 import { usePressObserver } from '../PressObserver'
+import s from './Key.module.css'
 
 type PressCallback = () => void
 
@@ -26,9 +26,9 @@ export const Key: FunctionComponent<KeyProps> = (props) => {
   return (
     <button
       className={clsx(s.key, s[type], pressed && s['is-pressed'])}
-      type="button"
       onMouseDown={onDown}
       onMouseUp={onUp}
+      type="button"
       {...rest}
     >
       {label}

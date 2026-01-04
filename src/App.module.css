@@ -4,9 +4,9 @@
 
 .content {
   --offset: calc(var(--footer-height) + var(--logo-height));
-  min-height: calc(100vh - var(--offset));
 
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - var(--offset));
 }

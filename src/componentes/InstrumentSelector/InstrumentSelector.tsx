@@ -1,14 +1,12 @@
-import { ChangeEvent } from 'react'
-import { InstrumentName } from 'soundfont-player'
+import type { ChangeEvent } from 'react'
+import type { InstrumentName } from 'soundfont-player'
 import { useInstrument } from '../../state/Instrument'
-import { options } from './options'
-
 import s from './InstrumentSelector.module.css'
+import { options } from './options'
 
 export const InstrumentSelector = () => {
   const { instrument, setInstrument } = useInstrument()
-  const updateValue = ({ target }: ChangeEvent<HTMLSelectElement>) =>
-    setInstrument(target.value as InstrumentName)
+  const updateValue = ({ target }: ChangeEvent<HTMLSelectElement>) => setInstrument(target.value as InstrumentName)
 
   return (
     <select className={s.instruments} onChange={updateValue} value={instrument}>
