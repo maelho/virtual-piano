@@ -1,6 +1,6 @@
 import type { ChangeEvent } from 'react'
 import type { InstrumentName } from 'soundfont-player'
-import { useInstrument } from '../../state/Instrument'
+import { useInstrument } from '../../state/instrument'
 import { options } from './options'
 
 export const InstrumentSelector = () => {
@@ -9,7 +9,7 @@ export const InstrumentSelector = () => {
 
   return (
     <select
-      className="mx-auto mt-6 block rounded border border-gray-300 bg-white bg-clip-padding text-gray-700 text-xl capitalize leading-6"
+      className="mx-auto mt-6 block rounded border border-[var(--control-border)] bg-[var(--control-bg)] px-4 py-2 text-[var(--control-text)] text-xl capitalize leading-6 hover:bg-[var(--control-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--focus-ring)]"
       onChange={updateValue}
       value={instrument}
     >
