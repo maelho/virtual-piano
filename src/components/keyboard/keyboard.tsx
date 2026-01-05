@@ -1,7 +1,6 @@
 import { selectKey } from '../../domain/keyboard'
 import { type MidiValue, notes } from '../../domain/note'
-import { Key } from '../Key'
-import s from './Keyboard.module.css'
+import { Key } from '../key'
 
 export type KeyboardProps = {
   loading: boolean
@@ -11,7 +10,7 @@ export type KeyboardProps = {
 
 export const Keyboard = ({ loading, play, stop }: KeyboardProps) => {
   return (
-    <div className={s.keyboard}>
+    <div className="flex">
       {notes.map(({ midi, type, index, octave }) => {
         const label = selectKey(octave, index)
         return (
