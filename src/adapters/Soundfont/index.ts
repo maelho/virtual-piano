@@ -1,1 +1,1 @@
-export * from './SoundProvider'
+export * from './sound-provider'

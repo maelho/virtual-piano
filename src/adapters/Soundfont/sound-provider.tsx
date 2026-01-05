@@ -17,12 +17,20 @@ type ProviderProps = {
 }
 
 export const SoundfontProvider: FunctionComponent<ProviderProps> = ({ AudioContext, instrument, render }) => {
-  let activeNodes: AudioNodesRegistry = {}
-
+  const activeNodes = useRef<AudioNodesRegistry>({})
   const [current, setCurrent] = useState<Optional<InstrumentName>>(null)
   const [loading, setLoading] = useState<boolean>(false)
   const [player, setPlayer] = useState<Optional<Player>>(null)
   const audio = useRef(new AudioContext())
+
+  const load = useCallback(async (instrumentName: InstrumentName = DEFAULT_INSTRUMENT) => {
+    setLoading(true)
+    const loadedPlayer = await Soundfont.instrument(audio.current, instrumentName)
+
+    setLoading(false)
+    setCurrent(instrumentName)
+    setPlayer(loadedPlayer)
+  }, [])
 
   const loadInstrument = useCallback(() => load(instrument), [instrument, load])
 
@@ -30,34 +38,31 @@ export const SoundfontProvider: FunctionComponent<ProviderProps> = ({ AudioConte
     if (!loading && instrument !== current) loadInstrument()
   }, [loadInstrument, loading, instrument, current])
 
-  async function resume() {
+  const resume = useCallback(async () => {
     return audio.current.state === 'suspended' ? await audio.current.resume() : Promise.resolve()
-  }
+  }, [])
 
-  async function load(instrument: InstrumentName = DEFAULT_INSTRUMENT) {
-    setLoading(true)
-    const player = await Soundfont.instrument(audio.current, instrument)
+  const play = useCallback(
+    async (note: MidiValue) => {
+      await resume()
+      if (!player) return
 
-    setLoading(false)
-    setCurrent(instrument)
-    setPlayer(player)
-  }
+      const node = player.play(note.toString())
+      activeNodes.current = { ...activeNodes.current, [note]: node }
+    },
+    [player, resume],
+  )
 
-  async function play(note: MidiValue) {
-    await resume()
-    if (!player) return
+  const stop = useCallback(
+    async (note: MidiValue) => {
+      await resume()
+      if (!activeNodes.current[note]) return
 
-    const node = player.play(note.toString())
-    activeNodes = { ...activeNodes, [note]: node }
-  }
-
-  async function stop(note: MidiValue) {
-    await resume()
-    if (!activeNodes[note]) return
-
-    activeNodes[note]?.stop()
-    activeNodes = { ...activeNodes, [note]: null }
-  }
+      activeNodes.current[note]?.stop()
+      activeNodes.current = { ...activeNodes.current, [note]: null }
+    },
+    [resume],
+  )
 
   return render({
     loading,

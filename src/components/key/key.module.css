@@ -1,27 +1,89 @@
 .key {
-  --radius: 2px;
+  --radius: 4px;
   --font-size: 0.6rem;
   --white-key-width: 20px;
   --white-key-height: calc(var(--white-key-width) * 4.57);
   --white-key-padding: calc(var(--white-key-height) / 1.28);
   --black-key-width: calc(var(--white-key-width) / 1.6);
-  --black-key-height: calc(var(--white-key-height) / 1.77);
+  --black-key-height: calc(var(--white-key-height) / 1.6);
   --black-key-padding: calc(var(--black-key-height) / 1.5);
+
+  contain: layout style paint;
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .natural {
+  position: relative;
   width: var(--white-key-width);
   height: var(--white-key-height);
   padding-top: var(--white-key-padding);
   margin-right: -1px;
+  background: var(--white-key-default);
+  border: 1px solid var(--white-key-border);
+  border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+  box-shadow: var(--white-key-shadow);
+}
+
+.natural::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 1px;
+  content: "";
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.8) 20%,
+    rgba(255, 255, 255, 0.8) 80%,
+    transparent 100%
+  );
 }
 
 .sharp,
 .flat {
+  position: relative;
   width: var(--black-key-width);
   height: var(--black-key-height);
   padding-top: var(--black-key-padding);
   margin: 0 calc(-0.5 * var(--black-key-width));
+  background: var(--black-key-default);
+  border: none;
+  border-radius: 0 0 calc(var(--radius) * 0.75) calc(var(--radius) * 0.75);
+  box-shadow: var(--black-key-shadow);
+}
+
+.sharp::before,
+.flat::before {
+  position: absolute;
+  top: 0;
+  right: 10%;
+  left: 10%;
+  height: 1px;
+  content: "";
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 30%,
+    rgba(255, 255, 255, 0.1) 70%,
+    transparent 100%
+  );
+  border-radius: 1px;
+}
+
+.sharp::after,
+.flat::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  content: "";
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+  border-radius: 0 0 calc(var(--radius) * 0.75) calc(var(--radius) * 0.75);
 }
 
 @media (min-width: 380px) {
@@ -36,6 +98,7 @@
   .key {
     --white-key-width: 35px;
     --font-size: 1rem;
+    --radius: 6px;
   }
 }
 
@@ -43,6 +106,7 @@
   .key {
     --white-key-width: 45px;
     --font-size: 1.2rem;
+    --radius: 7px;
   }
 }
 
@@ -50,6 +114,7 @@
   .key {
     --white-key-width: 65px;
     --font-size: 1.5rem;
+    --radius: 8px;
   }
 }
 
@@ -57,5 +122,6 @@
   .key {
     --white-key-width: 75px;
     --font-size: 1.8rem;
+    --radius: 9px;
   }
 }
