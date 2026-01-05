@@ -36,8 +36,8 @@ export function usePressObserver({ watchKey, onStartPress, onFinishPress }: Sett
       onFinishPress()
     }
 
-    document.addEventListener('keydown', handlePressStart)
-    document.addEventListener('keyup', handlePressFinish)
+    document.addEventListener('keydown', handlePressStart, { passive: true })
+    document.addEventListener('keyup', handlePressFinish, { passive: true })
 
     return () => {
       document.removeEventListener('keydown', handlePressStart)

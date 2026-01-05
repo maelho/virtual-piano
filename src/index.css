@@ -4,22 +4,31 @@
   --footer-height: 60px;
   --logo-height: 8rem;
 
-  --app-bg: #ffffff;
-  --keyboard-surface: #f8f9fa;
+  --app-bg: #f5f5f7;
+  --keyboard-surface: #e8e8ed;
+  --keyboard-frame: #d2d2d7;
   --grid-separator: #e9ecef;
 
-  --white-key-default: #ffffff;
-  --white-key-hover: #f8f9fa;
-  --white-key-pressed: #e5e7eb;
-  --white-key-border: #d1d5db;
-  --white-key-text: rgba(0, 0, 0, 0.6);
-  --white-key-text-disabled: #9ca3af;
+  --white-key-default: linear-gradient(180deg, #ffffff 0%, #f0f0f2 100%);
+  --white-key-hover: linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
+  --white-key-pressed: linear-gradient(180deg, #f0f0f2 0%, #e0e0e2 100%);
+  --white-key-border: #c8c8cc;
+  --white-key-text: rgba(0, 0, 0, 0.5);
+  --white-key-text-disabled: #b0b0b5;
 
-  --black-key-default: #111827;
-  --black-key-hover: #1f2937;
-  --black-key-pressed: #374151;
-  --black-key-text: #f9fafb;
-  --black-key-text-disabled: #9ca3af;
+  --white-key-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 4px 6px rgba(0, 0, 0, 0.06);
+  --white-key-shadow-hover: inset 0 1px 0 rgba(255, 255, 255, 1), 0 6px 10px rgba(0, 0, 0, 0.08);
+  --white-key-shadow-pressed: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+
+  --black-key-default: linear-gradient(180deg, #2d2d32 0%, #0d0d10 100%);
+  --black-key-hover: linear-gradient(180deg, #3a3a40 0%, #151518 100%);
+  --black-key-pressed: linear-gradient(180deg, #252528 0%, #0a0a0c 100%);
+  --black-key-text: rgba(255, 255, 255, 0.7);
+  --black-key-text-disabled: rgba(255, 255, 255, 0.3);
+
+  --black-key-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 6px 12px rgba(0, 0, 0, 0.25);
+  --black-key-shadow-hover: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 8px 16px rgba(0, 0, 0, 0.3);
+  --black-key-shadow-pressed: inset 0 2px 4px rgba(0, 0, 0, 0.3);
 
   --focus-ring: #60a5fa;
   --active-border: #3b82f6;
@@ -36,22 +45,31 @@
 }
 
 :root.dark {
-  --app-bg: #0e1117;
-  --keyboard-surface: #161a2b;
+  --app-bg: #0a0a0c;
+  --keyboard-surface: #141418;
+  --keyboard-frame: #1e1e24;
   --grid-separator: #242a45;
 
-  --white-key-default: #f1f3f9;
-  --white-key-hover: #ffffff;
-  --white-key-pressed: #d6dae8;
-  --white-key-border: rgba(0, 0, 0, 0.3);
-  --white-key-text: rgba(0, 0, 0, 0.7);
-  --white-key-text-disabled: rgba(0, 0, 0, 0.3);
+  --white-key-default: linear-gradient(180deg, #ffffff 0%, #f0f0f2 100%);
+  --white-key-hover: linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
+  --white-key-pressed: linear-gradient(180deg, #f0f0f2 0%, #e0e0e2 100%);
+  --white-key-border: rgba(0, 0, 0, 0.4);
+  --white-key-text: rgba(0, 0, 0, 0.6);
+  --white-key-text-disabled: rgba(0, 0, 0, 0.25);
 
-  --black-key-default: #0a0b10;
-  --black-key-hover: #1c1f2e;
-  --black-key-pressed: #2a2f47;
-  --black-key-text: #f3f4f6;
-  --black-key-text-disabled: #7b819a;
+  --white-key-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 4px 8px rgba(0, 0, 0, 0.4);
+  --white-key-shadow-hover: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 6px 12px rgba(0, 0, 0, 0.45);
+  --white-key-shadow-pressed: inset 0 2px 6px rgba(0, 0, 0, 0.12);
+
+  --black-key-default: linear-gradient(180deg, #1a1a1e 0%, #050507 100%);
+  --black-key-hover: linear-gradient(180deg, #252528 0%, #0a0a0c 100%);
+  --black-key-pressed: linear-gradient(180deg, #151518 0%, #030304 100%);
+  --black-key-text: rgba(255, 255, 255, 0.6);
+  --black-key-text-disabled: rgba(255, 255, 255, 0.2);
+
+  --black-key-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 6px 14px rgba(0, 0, 0, 0.6);
+  --black-key-shadow-hover: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 8px 18px rgba(0, 0, 0, 0.65);
+  --black-key-shadow-pressed: inset 0 2px 6px rgba(0, 0, 0, 0.5);
 
   --focus-ring: #93c5fd;
   --active-border: #3b82f6;
