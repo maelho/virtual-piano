@@ -9,61 +9,19 @@
   --black-key-padding: calc(var(--black-key-height) / 1.5);
 }
 
-.key {
-  position: relative;
-  font-size: var(--font-size);
-  text-transform: uppercase;
-  user-select: none;
-  border-radius: 0 0 var(--radius) var(--radius);
-}
-
 .natural {
-  z-index: 1;
   width: var(--white-key-width);
   height: var(--white-key-height);
   padding-top: var(--white-key-padding);
   margin-right: -1px;
-  color: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .sharp,
 .flat {
-  z-index: 2;
   width: var(--black-key-width);
   height: var(--black-key-height);
   padding-top: var(--black-key-padding);
-  margin: 0 calc(-0.5 * calc(var(--black-key-width)));
-  color: white;
-  background-color: #111;
-}
-
-.natural:active,
-.natural.is-pressed {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.sharp:active,
-.sharp.is-pressed,
-.flat:active,
-.flat.is-pressed {
-  background-color: #555;
-}
-
-.key:disabled {
-  cursor: wait;
-  background-color: none;
-}
-
-.natural:disabled {
-  color: rgba(0, 0, 0, 0.2);
-  background-color: white;
-}
-
-.sharp:disabled,
-.flat:disabled {
-  color: rgba(255, 255, 255, 0.4);
-  background-color: #111;
+  margin: 0 calc(-0.5 * var(--black-key-width));
 }
 
 @media (min-width: 380px) {

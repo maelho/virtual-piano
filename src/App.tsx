@@ -1,10 +1,12 @@
-import s from './App.module.css'
-import { Main } from './componentes/Main'
+import { Main } from './components/main'
 
 export function App() {
   return (
-    <div className={s.app}>
-      <main className={s.content}>
+    <div className="min-h-screen">
+      <main
+        className="flex items-center justify-center"
+        style={{ minHeight: 'calc(100vh - var(--footer-height) - var(--logo-height))' }}
+      >
         <Main />
       </main>
     </div>

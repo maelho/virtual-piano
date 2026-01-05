@@ -12,11 +12,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.18",
     "clsx": "^2.1.1",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "soundfont-player": "^0.12.0",
     "styled-components": "^6.1.19",
+    "tailwindcss": "^4.1.18",
     "use-immer": "^0.11.0"
   },
   "devDependencies": {
