@@ -1,4 +1,4 @@
-import { SoundfontProvider } from '../../adapters/soundfont'
+import { SoundfontProvider } from '../../adapters/soundfont/index.ts'
 import { useInstrument } from '../../state/instrument'
 import { useAudioContext } from '../audio-context-provider'
 import { Keyboard, type KeyboardProps } from './keyboard'
