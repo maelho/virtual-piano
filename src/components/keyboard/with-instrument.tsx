@@ -1,7 +1,7 @@
-import { SoundfontProvider } from '../../adapters/soundfont'
+import { SoundfontProvider } from '../../adapters/soundfont/index.js'
 import { useInstrument } from '../../state/instrument'
 import { useAudioContext } from '../audio-context-provider'
-import { Keyboard } from './keyboard'
+import { Keyboard, type KeyboardProps } from './keyboard'
 
 export const KeyboardWithInstrument = () => {
   const AudioContext = useAudioContext() as AudioContextType
@@ -11,7 +11,7 @@ export const KeyboardWithInstrument = () => {
     <SoundfontProvider
       AudioContext={AudioContext}
       instrument={instrument}
-      render={(props) => <Keyboard {...props} />}
+      render={(props: KeyboardProps) => <Keyboard {...props} />}
     />
   )
 }
