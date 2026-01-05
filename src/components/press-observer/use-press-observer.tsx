@@ -43,7 +43,7 @@ export function usePressObserver({ watchKey, onStartPress, onFinishPress }: Sett
       document.removeEventListener('keydown', handlePressStart)
       document.removeEventListener('keyup', handlePressFinish)
     }
-  }, [watchKey, pressed, setPressed, onStartPress, onFinishPress])
+  }, [watchKey, pressed, onStartPress, onFinishPress])
 
   return pressed
 }

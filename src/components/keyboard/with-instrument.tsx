@@ -1,5 +1,5 @@
 import { SoundfontProvider } from '../../adapters/Soundfont'
-import { useInstrument } from '../../state/Instrument'
+import { useInstrument } from '../../state/instrument'
 import { useAudioContext } from '../audio-context-provider'
 import { Keyboard } from './keyboard'
 

@@ -24,7 +24,7 @@ export const SoundfontProvider: FunctionComponent<ProviderProps> = ({ AudioConte
   const [player, setPlayer] = useState<Optional<Player>>(null)
   const audio = useRef(new AudioContext())
 
-  const loadInstrument = useCallback(() => load(instrument), [instrument])
+  const loadInstrument = useCallback(() => load(instrument), [instrument, load])
 
   useEffect(() => {
     if (!loading && instrument !== current) loadInstrument()
@@ -55,7 +55,7 @@ export const SoundfontProvider: FunctionComponent<ProviderProps> = ({ AudioConte
     await resume()
     if (!activeNodes[note]) return
 
-    activeNodes[note]!.stop()
+    activeNodes[note]?.stop()
     activeNodes = { ...activeNodes, [note]: null }
   }
 

@@ -1,2 +1,2 @@
-export { InstrumentContextConsumer, useInstrument } from './Context'
-export * from './Provider'
+export { InstrumentContextConsumer, useInstrument } from './context'
+export * from './provider'
